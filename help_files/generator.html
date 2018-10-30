@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>generator</title>
+    <link rel="stylesheet" href='../ai/bootstrap.css' 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <script src='../ai/jquery-3.js'  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src='../ai/popper.js'  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src='../ai/bootstrap.js'  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container p-4 bg-light" >
+
+<form id="notice-form">
+	<h3> Notice Board </h3>
+	Topic : 
+	<input type="text" class="form-text form-control" name="topic">
+	Notice message:
+	<input type="text" class="form-text form-control" name="notice">
+	link :
+	<input type="text" class="form-text form-control" name="link">
+	<div class="text-center m-4" id="notice"></div>
+</form>
+	<button class="btn btn-success"  onclick="generate('notice')"> generate </button>
+<hr>
+<form id="faculty-form">
+	<h3>Faculty</h3>
+	img_url : 
+	<input type="text" class="form-text form-control" name="img_url">
+	Name : 
+	<input type="text" class="form-text form-control" name="name">
+	Position :
+	<input type="text" class="form-text form-control" name="position">
+	designation :
+	<input type="text" class="form-text form-control" name="designation">
+	email : 
+	<input type="text" class="form-text form-control" name="email">
+	Contact Number: 
+	<input type="text" class="form-text form-control" name="contactNumber">
+	Research Areas:<br>
+	 <textarea name="research" class="w-50" style="height: 200px;">
+	</textarea> <br>
+	<div class="text-center m-4" id="faculty"></div>
+</form>
+		<button  onclick="generate('faculty')" class="btn btn-success"> generate </button>
+<hr>
+<form id="staff-form">
+	<h3>Staff</h3>
+	img_url : 
+	<input type="text" class="form-text form-control" name="img_url">
+	Name : 
+	<input type="text" class="form-text form-control" name="name">
+	Position :
+	<input type="text" class="form-text form-control" name="position">
+	email : 
+	<input type="text" class="form-text form-control" name="email">
+	Contact Number: 
+	<input type="text" class="form-text form-control" name="contactNumber">
+
+	<div class="text-center m-4" id="staff"></div>
+</form>
+	<button  class="btn btn-success" onclick="generate('staff')"> generate </button>
+
+<hr>
+<form id="student-form">
+	<h3>Student</h3>
+	img_url : 
+	<input type="text" class="form-text form-control" name="img_url">
+	Name : 
+	<input type="text" class="form-text form-control" name="name">
+	Position :
+	<input type="text" class="form-text form-control" name="position">
+	email : 
+	<input type="text" class="form-text form-control" name="email">
+	Contact Number: 
+	<input type="text" class="form-text form-control" name="contactNumber">
+	Research Areas: <br>
+	 <textarea name="research" class="w-50" style="height: 200px;">
+	</textarea> <br>
+	<div class="text-center m-4" id="student"></div>
+</form>
+	<button  onclick="generate('student')" class="btn btn-success"> generate </button>
+
+<hr>
+<form id="FAQ-form">
+	<h3>FAQ</h3>
+	Questions :
+	<input type="text" class="form-text form-control" name="img_url">
+	Answer: <br>
+	 <textarea name="research" class="w-50" style="height: 200px;">
+	</textarea> <br>
+	<div class="text-center m-4" id="FAQ"></div>
+</form>
+	<button  onclick="generate('FAQ')" class="btn btn-success"> generate </button>
+
+<hr>
+<form id="research-form">
+	<h3>Research</h3>
+	Title:
+	<input type="text" class="form-text form-control" name="title">
+	Field : 
+	<input type="text" class="form-text form-control" name="field">
+	Description : <br>
+	 <textarea name="Description" class="w-50" style="height: 200px;">
+	</textarea> <br>
+	sponsor :
+	<input type="text" class="form-text form-control" name="sponsor ">
+
+	Principal Investigator  : 
+	<input type="text" class="form-text form-control" name="Investigator ">
+	<div class="text-center m-4" id="research"></div>
+</form>
+	<button  onclick="generate('research')" class="btn btn-success"> generate </button>
+
+<hr>
+<form id="event-form" action="">
+	<h3>Events</h3>
+	link :
+	<input type="text" class="form-text form-control" name="link">
+	Title:
+	<input type="text" class="form-text form-control" name="title">
+	Sub Title : 
+	<input type="text" class="form-text form-control" name="subtitle">
+	Description : <br>
+	 <textarea name="Description" class="w-50" style="height: 200px;">
+	</textarea> <br>
+	date :
+	<input type="text" class="form-text form-control" name="date">
+	Locations :
+	<input type="text" class="form-text form-control" name="location">
+	<div class="text-center m-4" id="event"></div>
+</form>
+	<button  onclick="generate('event')" class="btn btn-success"> generate </button>
+
+</div>
+</body>
+
+<script>
+function generate(targetId) {
+    var x = document.getElementById(targetId+'-form');
+    var text = "[";
+    var i;
+	var re = new RegExp('"', 'g');
+	var re2 = new RegExp("'", 'g');
+    for (i = 0; i < x.length ;i++) {
+        text += '"'+ x.elements[i].value.replace(re,'\\"').replace(re2,"\\'") + '",';
+    }
+    text = text.slice(0,-1);
+    text += "]";
+    console.log(text);
+
+    document.getElementById(targetId).innerHTML = text;
+}
+</script>
+</html>
