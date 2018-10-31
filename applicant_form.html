@@ -115,31 +115,69 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
       <br>
       <h2 class="text-center"><span class="ttl">Apply for this program</span></h2>
 
-    <form class="form-horizontal" action="https://formspree.io/chrajeshkhanna82798@gmail.com" method=post  >
-            <input type="hidden" name="_next" value="applyResponse.html" />
-                        <label for="inputfirstName" >First name:</label>
-                        <input type="text" class="form-control" name="First_Name" id="inputfirstName" >
-                          <label for="inputLastName">Last name:</label>
-                          <input type="text" class="form-control"  name="Last_Name" id="inputLastName">
-                      <label for="inputEmail4" >Email</label>
-                      <input type="email" class="form-control" name="_replyto" id="inputEmail4" placeholder="Email">
+    <form class="form-horizontal w-50 mx-auto" id="CoEform" action="https://formspree.io/chrajeshkhanna82798@gmail.com" method=post >
+      <input type="hidden" name="_next" value="applyResponse.html" />
+          <label for="inputfirstName" > <h6> First name:</h6></label>
+          <input type="text" class="form-control" name="First_Name" id="inputfirstName" required>
+            <label for="inputLastName"><h6>Last name:</h6></label>
+            <input type="text" class="form-control"  name="Last_Name" id="inputLastName" required>
+        <label for="inputEmail4" ><h6>Email</h6></label>
+        <input type="email" class="form-control" name="_replyto" id="inputEmail4" placeholder="Email" required>
 
-                        <label for="inputMobile" >Mobile:</label>
-                        <input type="number" class="form-control" name="Mobile" id="inputMobile">
+          <label for="inputMobile" ><h6>Mobile:</h6></label>
+          <input type="number" class="form-control" name="Mobile" id="inputMobile" required>
+          <div class="form-check mx-auto">
+            <br>
+            <h6>  Are you an : </h6> 
+            <div class="row text-center">
+              <div class="col">
+              <input class="form-check-input" type="radio" name="check1" id="checkjob" value="option1" checked>
+              <label class="form-check-label" for="checkjob">Employee</label>
+              </div>
+              <div class="col">
+              <input class="form-check-input" type="radio" name="check1" id="checkstudent" value="option2">
+              <label class="form-check-label" for="checkstudent">Student</label>
+              </div>
+             </div>
+           </div>
+          <div id="ifEmployee" class="d-none">
+              <label for="inputExperience" ><h6>Experience:</h6></label>
+              <input type="number" class="form-control" name="Experience" id="inputExperience">
 
-                        <label for="inputExperience" >Experience:</label>
-                        <input type="number" class="form-control" name="Experience" id="inputExperience">
-  
-                    <label for="inputCompany" >Company:</label>
-                    <input type="text" class="form-control" name="Company" id="inputCompany">
-                    <label for="inputDesignation" >Designation:</label>
-                    <input type="text" class="form-control" name="Designation" id="inputDesignation" >
-                      <select id="inputState" class="form-control" name="city">
-                        <option selected>Bengaluru</option>
-                        <option>Kharagpur</option>
-                      </select>
-                    <br>
-                      <button type='submit' value="send" class="btn btn-success pl-4 pr-4">Submit</button> 
+              <label for="inputCompany" ><h6>Company:</h6></label>
+              <input type="text" class="form-control" name="Company" id="inputCompany">
+
+              <label for="inputDesignation" ><h6>Designation:</h6></label>
+              <input type="text" class="form-control" name="Designation" id="inputDesignation" >
+          </div>
+          <div id="ifStudent" class="d-none">
+              <div class="form-check ml-4">
+                <br>
+                <input class="form-check-input" type="checkbox" value="" id="checkFinalYear">
+                <label class="form-check-label" for="checkFinalYear">Are you in final year?</label>
+                <br><br>
+              </div>
+              <div id="ifFinalYear" class="d-none">
+                <label for="inputCollege" ><h6>College:</h6></label>
+                <input type="text" class="form-control" name="College" id="inputCollege">
+
+                <label for="inputBranch" ><h6>Branch of engineering:</h6></label>
+                <input type="text" class="form-control" name="Branch" id="inputBranch">
+
+                <div class="text-muted text-right p-2">
+                    If you are not in engineering or maths stream you are not eligible for the course.
+                </div>
+
+              </div>
+            </div>
+            <div class="mt-4">
+                <select id="inputState" class="form-control" name="city">
+                <option selected>Bengaluru</option>
+                <option>Kharagpur</option>
+              </select>
+            </div>
+      <br>
+        <button type='submit' value="send" id="formSubmit" class="btn btn-success pl-4 pr-4">Submit</button> 
     </form>
 </div>
 
@@ -174,5 +212,6 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 </div>
 </body>
 <script src="scripts/base.js"></script>
+<script src="scripts/application.js"></script>
 
 </html>
